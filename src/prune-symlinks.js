@@ -5,8 +5,8 @@ const map = require('lodash/map')
 const merge = require('lodash/merge')
 const { resolve } = require('path')
 const { lstatAsync, statAsync, readdirAsync, unlinkAsync } = Promise.promisifyAll(require('fs-plus'))
-const findFolders = require('../util/find-folders')
-const createTree = require('../util/create-tree')
+const findFolders = require('./util/find-folders')
+const createTree = require('./util/create-tree')
 
 const defaultOptions = {
 	glob: '!(node_modules)/**/package.json',
