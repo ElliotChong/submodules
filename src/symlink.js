@@ -127,12 +127,11 @@ module.exports = (options) => {
 							return symlinkSync(file, destination)
 						} catch (error) {
 							// Handle known errors
-							// if (error.message.includes('EEXIST: file already exists')) {
-							// 	return
-							// }
-							//
-							// throw error
-							console.error(error)
+							if (error.message.includes('EEXIST: file already exists')) {
+								return
+							}
+
+							throw error
 						}
 					})
 				})
