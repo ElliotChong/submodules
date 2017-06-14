@@ -11,4 +11,4 @@ program
 const { verbose } = program
 const options = { verbose }
 
-require('../src/execute')('npm outdated', options)
+require('../src/execute')('yarpm outdated', options)
