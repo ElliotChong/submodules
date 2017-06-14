@@ -1,6 +1,6 @@
 {
   "name": "submodules",
-  "version": "1.0.2",
+  "version": "2.0.0",
   "description": "Ease the management of complex projects with nested modules (pacakge.jsons) via recursive npm commands and other useful enhancements.",
   "main": "src/execute.js",
   "bin": {
@@ -28,6 +28,7 @@
     "commander": "^2.9.0",
     "fs-plus": "^2.9.1",
     "glob": "^7.0.5",
-    "lodash": "^4.15.0"
+    "lodash": "^4.15.0",
+    "yarpm": "^0.2.1"
   }
 }

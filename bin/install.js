@@ -11,4 +11,4 @@ program
 const { verbose } = program
 const options = { verbose }
 
-require('../src/execute')('npm install', options)
+require('../src/execute')('yarpm install', options)
