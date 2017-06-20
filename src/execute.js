@@ -9,7 +9,8 @@ const { green, red } = require('colors/safe')
 const defaultOptions = {
 	glob: '!(node_modules)/**/package.json',
 	cwd: process.cwd(),
-	filter: file => file.includes('node_modules') === false
+	filter: file => file.includes('node_modules') === false,
+	killParent: true
 }
 
 module.exports = (command, options) => {
@@ -17,7 +18,7 @@ module.exports = (command, options) => {
 		throw new Error('`command` is a required parameter.')
 	}
 
-	const { glob, verbose } = options = merge({}, defaultOptions, options)
+	const { glob, verbose, killParent } = options = merge({}, defaultOptions, options)
 
 	return findFolders(glob, options)
 	// Execute a command on all folders that contain a `package.json` file
@@ -42,6 +43,11 @@ module.exports = (command, options) => {
 		})
 		.catch((error) => {
 			console.error(error.cause || error)
+
+			// Kill the parent process if a child process exits with an error
+			if (killParent === true) {
+				process.exit(error.code || 1)
+			}
 		})
 	})
 }
