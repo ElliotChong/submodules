@@ -6,9 +6,10 @@ program
 .version('0.0.0')
 .usage('[options]')
 .option('-v, --verbose', 'Enable verbose logging')
+.option('-g, --glob <glob>', 'Set the glob')
 .parse(process.argv)
 
-const { verbose } = program
-const options = { verbose }
+const { glob, verbose } = program
+const options = { glob, verbose }
 
 require('../src/execute')('yarpm install', options)
